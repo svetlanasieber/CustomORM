@@ -32,10 +32,8 @@ public class EntityManager<E> implements DbContext<E> {
         return doUpdate(entity, idValue);
     }
 
-    // Find table name
-    // Find column names
-    // Find column values
-    // Generate + Execute sql
+    
+   
     private boolean doInsert(E entity) throws IllegalAccessException, SQLException {
         String tableName = getTableName(entity.getClass());
         List<String> columnNames = findEntityColumns(entity);
