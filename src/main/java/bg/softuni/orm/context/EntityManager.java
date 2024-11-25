@@ -136,21 +136,7 @@ public class EntityManager<E> implements DbContext<E> {
         }
 
         return es.iterator().next();
-//
-//        String tableName = getTableName(table);
-//
-//        String selectSingleSQL = String.format("SELECT * FROM %s %s %s",
-//                tableName,
-//                where == null ? "" : where,
-//                "LIMIT 1");
-//
-//        ResultSet resultSet = connection.prepareStatement(selectSingleSQL).executeQuery();
-//
-//        if (resultSet.next()) {
-//            return mapEntity(table, resultSet);
-//        }
-//
-//        return null;
+
     }
 
     private E mapEntity(Class<E> type, ResultSet dbResult) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, SQLException {
@@ -207,9 +193,7 @@ public class EntityManager<E> implements DbContext<E> {
         return annotation.name();
     }
 
-    // Get all fields
-    // Find field with @Id
-    // Get value from field
+
     private int getIdValue(E entity) throws IllegalAccessException {
         List<Field> idFields = Arrays
                 .stream(entity.getClass().getDeclaredFields())
